@@ -2,10 +2,10 @@
 CREATE TABLE public.user_profile (
     id serial NOT NULL,
     "name" varchar NOT NULL,
-    "Aadhaar" varchar NOT NULL,
+    "Aadhar" varchar NOT NULL,
     age integer NOT NULL,
     income integer NOT NULL,
-    risk_question boolean ARRAY NOT NULL,
+    risk_questions boolean ARRAY NOT NULL,
     recomendation varchar NULL,
     "Breed" varchar NOT NULL,
     "Number" integer NOT NULL,
@@ -14,4 +14,4 @@ CREATE TABLE public.user_profile (
 
 
 
-CREATE UNIQUE INDEX user_profile_aadhaar_idx ON public.user_profile ("Aadhaar");
+CREATE UNIQUE INDEX user_profile_aadhaar_idx ON public.user_profile ("Aadhar");
