@@ -9,6 +9,7 @@ CREATE TABLE public.user_profile (
     recomendation varchar NULL,
     "Breed" varchar NOT NULL,
     "Number" integer NOT NULL,
+    dependents integer NOT NULL,
     CONSTRAINT user_profile_pk PRIMARY KEY (id)
 );
 

@@ -9,5 +9,6 @@ table! {
         recomendation -> Nullable<Varchar>,
         Breed -> Varchar,
         Number -> Int4,
+        dependents -> Int4,
     }
 }

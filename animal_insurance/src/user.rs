@@ -13,20 +13,22 @@ pub struct User {
     pub recomendation: String,
     pub income: i32,
     pub risk_questions: Vec<bool>,
-    Breed: String,
-    Number: i32,
+    pub dependents: i32,
+    pub Breed: String,
+    pub Number: i32,
 }
 #[allow(non_snake_case)]
 #[derive(Insertable, Debug)]
 #[table_name = "user_profile"]
 pub struct NewUser {
-    name: String,
-    Aadhar: String,
-    age: i32,
-    income: i32,
-    risk_questions: Vec<bool>,
-    Breed: String,
-    Number: i32,
+    pub name: String,
+    pub Aadhar: String,
+    pub age: i32,
+    pub income: i32,
+    pub risk_questions: Vec<bool>,
+    pub dependents: i32,
+    pub Breed: String,
+    pub Number: i32,
 }
 
 lazy_static! {
@@ -39,12 +41,14 @@ pub struct UserInfo {
     pub name: String,
     #[validate(length(equal = 12))]
     pub Aadhar: String,
-    #[validate(range(min = 1))]
+    #[validate(range(min = 0))]
     pub age: i32,
-    #[validate(range(min = 1))]
+    #[validate(range(min = 0))]
     pub income: i32,
     pub risk_questions: Vec<bool>,
     pub cattle: CattleInfo,
+    #[validate(range(min = 0))]
+    pub dependents: i32,
 }
 #[allow(non_snake_case)]
 #[derive(Deserialize)]
