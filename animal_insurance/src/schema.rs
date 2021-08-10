@@ -6,9 +6,9 @@ table! {
         age -> Int4,
         income -> Int4,
         risk_questions -> Array<Bool>,
-        recomendation -> Nullable<Varchar>,
-        Breed -> Varchar,
-        Number -> Int4,
+        recommendation -> Nullable<Varchar>,
+        Breed -> Nullable<Varchar>,
+        Number -> Nullable<Int4>,
         dependents -> Int4,
     }
 }

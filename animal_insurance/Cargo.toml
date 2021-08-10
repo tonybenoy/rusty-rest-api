@@ -20,3 +20,6 @@ env_logger="0.9.0"
 actix-web-validator="2.1.1"
 validator = { version = "0.12", features = ["derive"] }
 regex = "1"
+strum = "0.21"
+strum_macros = "0.21"
+rand = "0.8.4"

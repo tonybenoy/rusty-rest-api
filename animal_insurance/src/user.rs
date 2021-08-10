@@ -1,35 +1,7 @@
-use crate::schema::user_profile;
 use lazy_static::lazy_static;
 use regex::Regex;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 use validator::Validate;
-#[allow(non_snake_case)]
-#[derive(Debug, Serialize, Deserialize, Queryable)]
-pub struct User {
-    pub id: i64,
-    pub name: String,
-    pub Aadhar: String,
-    pub age: i32,
-    pub recomendation: String,
-    pub income: i32,
-    pub risk_questions: Vec<bool>,
-    pub dependents: i32,
-    pub Breed: String,
-    pub Number: i32,
-}
-#[allow(non_snake_case)]
-#[derive(Insertable, Debug)]
-#[table_name = "user_profile"]
-pub struct NewUser {
-    pub name: String,
-    pub Aadhar: String,
-    pub age: i32,
-    pub income: i32,
-    pub risk_questions: Vec<bool>,
-    pub dependents: i32,
-    pub Breed: String,
-    pub Number: i32,
-}
 
 lazy_static! {
     static ref RE: Regex = Regex::new(r"^\d+$").unwrap();
@@ -45,8 +17,8 @@ pub struct UserInfo {
     pub age: i32,
     #[validate(range(min = 0))]
     pub income: i32,
-    pub risk_questions: Vec<bool>,
-    pub cattle: CattleInfo,
+    pub risk_questions: Vec<i32>,
+    pub cattle: Option<CattleInfo>,
     #[validate(range(min = 0))]
     pub dependents: i32,
 }
@@ -55,4 +27,18 @@ pub struct UserInfo {
 pub struct CattleInfo {
     pub Breed: String,
     pub Number: i32,
+}
+impl UserInfo {
+    pub fn get_breed_if_available(&self) -> String {
+        match &self.cattle {
+            Some(cattle) => return cattle.Breed.clone(),
+            None => return "".to_string(),
+        }
+    }
+    pub fn get_num_if_available(&self) -> i32 {
+        match &self.cattle {
+            Some(cattle) => return cattle.Number,
+            None => return 0,
+        }
+    }
 }

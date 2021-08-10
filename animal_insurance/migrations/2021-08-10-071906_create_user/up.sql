@@ -6,9 +6,9 @@ CREATE TABLE public.user_profile (
     age integer NOT NULL,
     income integer NOT NULL,
     risk_questions boolean ARRAY NOT NULL,
-    recomendation varchar NULL,
-    "Breed" varchar NOT NULL,
-    "Number" integer NOT NULL,
+    recommendation varchar NULL,
+    "Breed" varchar,
+    "Number" integer,
     dependents integer NOT NULL,
     CONSTRAINT user_profile_pk PRIMARY KEY (id)
 );
