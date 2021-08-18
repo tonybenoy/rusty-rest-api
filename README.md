@@ -1,4 +1,4 @@
-# Animall
+# Animal insurance
 
 ## How to run server
 
